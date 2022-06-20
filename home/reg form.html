@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            li{
+                      display: inline;
+                      background-color: white;
+                      padding: 10px;
+                      margin-left: 90px;
+                      padding-left: 20px;
+                      font-size: 20px;
+                      color:blue;
+                      position: relative;
+                  }
+                  form{
+                width: 500px;
+                border: 2px solid white;
+                padding: 60px;
+                background-color: antiquewhite;
+                border-radius: 50px;
+                margin-left: 30%;
+               color: black;
+            }
+            input{
+                display: block;
+                border: 2px solid black;
+                width: 100%;
+                padding: 10px;
+                margin: 10px auto;}
+                  #message {
+  display:none;
+  background: blue;
+  color: #000;
+  position: relative;
+  padding: 3px;
+  margin-top: 10px;}
+  #message p {
+  padding:5px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content:"";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "";
+}    
+          </style>
+    </head>
+    <body style="background-color: blue;color:white;">
+        <h1>
+            AGAPE LUTHERAN JUNIOUR SEMINARY
+          </h1>
+          <header>
+            <ul> <li><a href="index.html">Home</a> </li>
+              <li><a href="abou.html">About Us</a> </li>
+              <li><a href="reg form.html">Registration</a> </li>
+              <li><a href="alum.html">Alumni</a> </li>
+              <li><a href="staf.html">Staff</a> </li>
+              <li><a href="conta.html">Contact Us</a> </li>
+      </ul>
+          
+          </header>
+          
+        <!--The register menu item should allow a user of a school website to create an account that 
+they can use to access specific parts of the website. It should have a registration form that 
+captures the following information: first name, middle name, surname, username, date of 
+birth, password, CV (uploaded as a file), contacts (email address, mobile number, and social 
+media accounts (Facebook, Twitter, and Instagram)). Email addresses should be checked for 
+correctness upon entry, and the password should be at least 8 characters long and should 
+contain both alphanumeric characters and special characters-->
+        <form method="post" action="register.php">
+            <h3> Registration Form</h3>
+            <label> First Name</label>
+            <input id="fname" name="fname" type="text" placeholder="First Name" required="true"><br>
+            <label> Middle Name</label>
+            <input id="mname" name="mname" type="text" placeholder=" Middle Name" required="true"><br>
+            <label> Surname</label>
+            <input id="sname" name="sname" type="text" placeholder=" Surname" required="true"><br>
+            <label>  Username</label>
+            <input id="uname" name="uname" type="text" placeholder=" Username" required="true"><br>
+            <label> Date of Birth </label>
+            <input id="dob" name="dob" type="date" placeholder=" Date of Birth " required="true"><br>
+            <label>  Password</label>
+            <input id="password" name="password" type="password" placeholder="Password"required="true">
+            <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+              </div><br>
+            
+            <label>  CV ( uploaded as file)</label>
+            <input id="cv" name="cv" type="file" placeholder=" CV ( uploaded as file)" required="true"><br>
+            <label>  Email Address</label>
+            <input id="email" name="email" type="email" placeholder=" Email" onkeydown="ValidateEmail()"  required="true"><span id="text"></span><br>
+            <label>  Mobile Number</label>
+            <input id="mno" name="mno" type="text" placeholder=" Mobile Number" required="true"><br>
+            <label>  Facebook Account</label>
+            <input id="fb" name="fb" type="text" placeholder="Facebook Account "><br>
+            <label>  Twitter Account</label>
+            <input id="ta" name="ta" type="text" placeholder="Twitter Account "><br>
+            <label>  Instagram Account</label>
+            <input id="ig" name="ig" type="text" placeholder="Instagram Account "><br>
+            <label for="submit" ><b> Submit  </b></label>
+            <input type="submit" name="submit" id="submit" placeholder="Submit "  onclick="matchPassword()"><br>
+            <label for="reset" ><b> Clear Form </b></label>
+            <input type="reset" name="reset" id="reset" placeholder="Clear Form"><br>
+             
+        </form>
+        <script>
+  
+            function ValidateEmail()
+        {
+            var emailError = document.getElementById("email").value;
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var textError = document.getElementById("text");
+            if(emailError.match(mailformat))
+            {
+            textError.innerHTML = "Valid Email Address";
+            textError.style.color = "#0000ff";
+            return true;
+            }
+            else
+            {
+            textError.innerHTML = "Invalid Email Address";
+            textError.style.color = "#ff0000";
+            return false;
+            }
+        }
+       
+   
+        var myInput = document.getElementById("password");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+            
+            // When the user clicks on the password field, show the message box
+            myInput.onfocus = function() {
+              document.getElementById("message").style.display = "block";
+            }
+            
+            // When the user clicks outside of the password field, hide the message box
+            myInput.onblur = function() {
+              document.getElementById("message").style.display = "none";
+            }
+            
+            // When the user starts to type something inside the password field
+            myInput.onkeyup = function() {
+              // Validate lowercase letters
+              var lowerCaseLetters = /[a-z]/g;
+              if(myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+              } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+            
+              // Validate capital letters
+              var upperCaseLetters = /[A-Z]/g;
+              if(myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+              } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+              }
+            
+              // Validate numbers
+              var numbers = /[0-9]/g;
+              if(myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+              } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+              }
+            
+              // Validate length
+              if(myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+              } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+              }
+            }
+
+            
+        </script>
+    </body>
+</html>

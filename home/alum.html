@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            li{
+                      display: inline;
+                      background-color: white;
+                      padding: 10px;
+                      margin-left: 90px;
+                      padding-left: 20px;
+                      font-size: 20px;
+                      color:blue;
+                      position: relative;
+                  }
+                  form{
+                width: 500px;
+                border: 2px solid white;
+                padding: 60px;
+                background-color: antiquewhite;
+                border-radius: 50px;
+                margin-left: 30%;
+               color: black;
+            }
+            input{
+                display: block;
+                border: 2px solid black;
+                width: 100%;
+                padding: 10px;
+                margin: 10px auto;}
+                
+                  
+          </style>
+    </head><!--The alumni menu item should get a website user to a page where they can register and 
+        display information about students who graduated from your school. Among other things, 
+        you should have a form to capture the following information and store it into the database: 
+        alumnus name, year of enrolment, year of graduation, headmaster(mistress) at the times of 
+        enrolment and graduation, famous teacher at the time of graduation, summary of their 
+        results (e.g div one, two, etc.), current occupation, address, email, and mobile number. The 
+        application should strive to minimize direct typing of user inputs; it should, instead, try as 
+        much as possible to allow a user to select inputs from a range of possible values for a 
+        particular form field. Appropriate validations of form field values should be made to ensure, 
+        among other things, that both alumnus name and teacher’s name cannot exceed 30 
+        characters, current occupation cannot exceed 20 characters, and inappropriate school 
+        results are flagged. Importantly, the website should also be able to retrieve and display on a 
+        web page, in tabular form, all alumni information stored in the database. Access to the 
+        contents of the alumni menu item should only be allowed for registered users upon 
+        successful login to the website.-->
+    <body style="background-color: blue;color:white;">
+        <h1>
+            AGAPE LUTHERAN JUNIOUR SEMINARY
+          </h1>
+          <header>
+            <ul> <li><a href="index.html">Home</a> </li>
+              <li><a href="abou.html">About Us</a> </li>
+              <li><a href="reg form.html">Registration</a> </li>
+              <li><a href="alum.html">Alumni</a> </li>
+              <li><a href="staf.html">Staff</a> </li>
+              <li><a href="conta.html">Contact Us</a> </li>
+      </ul>
+          
+          </header>
+        <form method="post" action="alumni.php">
+            <h2> Alumni Registration Form</h2>
+            <label>  Alumnus name</label>
+            <input id="uname" name="uname" type="text" placeholder=" Alumnus name" required="true" max="30"><br>
+            <label> Year of Enrolment  </label>
+            <input id="yoe" name="yoe" type="date" placeholder=" Year of Enrolment " required="true"><br>
+            <label> Year of Graduation </label>
+            <input id="yog" name="yog" type="date" placeholder=" Year of Graduation " required="true"><br>
+            <label> Head Master (Mistress) at time of enrolment</label>
+            <select id="hmi" name="hmi">
+                <option></option>
+                <option>Sr. Mlay</option>
+                <option>Rev. Mmari</option>
+                <option>Mrs. Kimaro</option>
+                <option>Rev. Lymo</option>
+            </select><br>
+            <label> Head Master (Mistress) at time of gradutation</label>
+            <select id="hog" name="hog">
+                <option></option>
+                <option>Sr. Mlay</option>
+                <option>Rev. Mmari</option>
+                <option>Mrs. Kimaro</option>
+                <option>Rev. Lymo</option>
+            </select><br>
+            <label>  Famous teacher at the time of graduation</label>
+            <input id="ft" name="ft" type="text" placeholder="Famous teacher at the time of graduation" required="true"  max="20"><br>
+            <label> Results </label>
+            <select id="result" name="result">
+                <option></option>
+                <option>Div I</option>
+                <option>Div II</option>
+                <option>Div III</option>
+                <option>Div IV</option>
+                <option>Div 0</option>
+            </select><br>
+            <label>   Current Occupation</label>
+            <input id="co" name="co" type="text" placeholder="Current Occupation" required="true"><br>
+            <label> Address</label>
+            <input id="address" name="address" type="text" placeholder="Address" required="true"><br>
+            <label>  Email </label>
+            <input id="aemail" name="aemail" type="email" placeholder=" Email" required="true"><br>
+            <label>  Mobile Number</label>
+            <input id="amno" name="amno" type="text" placeholder=" Mobile Number" required="true"><br>
+            <label for="submit" ><b> Submit  </b></label>
+            <input type="submit" name="submit" id="submit" placeholder="Submit "> <br>
+            <label for="reset" ><b> Clear Form </b></label>
+            <input type="reset" name="reset" id="reset" placeholder="Clear Form"> <br>
+      
+        </form>
+    </body>        
+</html>
